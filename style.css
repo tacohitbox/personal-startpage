@@ -19,6 +19,14 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: #acacac;
+}
+
+a:hover {
+  color: white;
+}
+
 input {
   font-family: "Hack", 'Courier New', Courier, monospace;
   background: black;
@@ -54,10 +62,32 @@ h2 {
   color: #7f5af0;
 }
 
+.sc,
+table {
+  width: 100%;
+}
+
+tr,
+td,
+th {
+  text-align: center;
+  width:25%;
+}
+
+.empty-cell {
+  width: 100%;
+  height: 100%;
+}
+
 #wpb {
-  overflow:hidden;
+  overflow: hidden;
   width: 0%;
   height: 19px;
   background: #7f5af0;
   transition: all 0.25s;
+}
+
+.tc {
+  margin: 10px 0;
+  text-align: center;
 }

@@ -50,3 +50,37 @@ x.onload = function() {
     localStorage.setItem("w", b.data.current.weather[0].description);
   }, 500)
 }
+
+// some code was stolen from https://github.com/migueravila/Bento/blob/master/assets/js/time.js
+// mainly out of laziness
+
+var m = [
+  'jan',
+  'feb',
+  'mar',
+  'apr',
+  'may',
+  'jun',
+  'jul',
+  'aug',
+  'sep',
+  'oct',
+  'nov',
+  'dec',
+];
+
+setInterval(function() {
+  var d = new Date();
+  var mm = m[d.getMonth()];
+  var dd = d.getDate();
+  var min = (mins = ('0' + d.getMinutes()).slice(-2));
+  var sec = (secs = ('0' + d.getSeconds()).slice(-2)); // hehe secs
+  var h = d.getHours();
+  var ap = h >= 12 ? 'pm' : 'am';
+  // replace with `ap = ""` if you don't want am/pm displayed]
+  h = h % 12;
+  h = h ? h : 12;
+  // comment out the previous 2 lines for 24 hour time
+
+  document.getElementById("time").innerHTML = `${mm} ${dd} @ ${h}:${min}:${sec}${ap}`;
+}, 1); // feel free to change this, it's only because i want my clock on my taskbar to match
