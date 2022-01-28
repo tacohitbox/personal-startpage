@@ -15,14 +15,6 @@ if (localStorage.getItem("t") && localStorage.getItem("w")) {
   document.getElementById("wl").innerHTML = `it's currently ${localStorage.getItem("t")} degrees with some ${localStorage.getItem("w")} outside.`;
 }
 
-setInterval(function() {
-  if (document.getElementById("tline").innerHTML.includes("_")) {
-    document.getElementById("tline").innerHTML = document.getElementById("tline").innerHTML.substring(0, document.getElementById("tline").innerHTML.length - 2);
-  } else {
-    document.getElementById("tline").innerHTML = `${document.getElementById("tline").innerHTML} _`;
-  }
-}, 400)
-
 document.getElementById("wpb").style.width = "15%";
 var x = new XMLHttpRequest();
 x.open("GET", "https://se.tacohitbox.com/weather/5110629");

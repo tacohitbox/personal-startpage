@@ -74,6 +74,23 @@ th {
   width:25%;
 }
 
+@keyframes cursor-blink {
+  from {
+    content: " _"
+  }
+  to {
+    content: ""
+  }
+}
+
+#tline::after {
+  content: "";
+  animation-name: cursor-blink;
+  animation-duration: 0.67s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(2, jump-both)
+}
+
 .empty-cell {
   width: 100%;
   height: 100%;
