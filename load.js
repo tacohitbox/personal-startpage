@@ -25,7 +25,7 @@ setInterval(function() {
 
 document.getElementById("wpb").style.width = "15%";
 var x = new XMLHttpRequest();
-x.open("GET", "http://localhost:9090/weather");
+x.open("GET", "https://se.tacohitbox.com/weather/5110629");
 x.send();
 x.onreadystatechange = function() {
   if (x.readyState == 1) {
