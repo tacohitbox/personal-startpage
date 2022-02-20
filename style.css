@@ -27,7 +27,7 @@ a:hover {
   color: white;
 }
 
-input {
+#text-box {
   font-family: "Hack", 'Courier New', Courier, monospace;
   background: black;
   color: #2cb67d;
@@ -107,4 +107,29 @@ th {
 .tc {
   margin: 10px 0;
   text-align: center;
+}
+
+.footer {
+  text-align: center;
+  font-size: small;
+  margin-top: 0;
+}
+
+.footer a,
+.irreg-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:focus, 
+.footer a:hover,
+.footer a:focus-within,
+.irreg-link:focus,
+.irreg-link:hover,
+.irreg-link:focus-within {
+  text-decoration: underline;
+}
+
+.set {
+  margin-top: 5px;
 }

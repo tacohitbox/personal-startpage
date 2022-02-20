@@ -8,6 +8,7 @@ var w = [
 ]
 
 document.getElementById("wel").innerHTML = w[Math.floor(Math.random() * w.length)];
+if (localStorage.getItem("name")) document.getElementById("tline").innerHTML = localStorage.getItem("name");
 
 if (localStorage.getItem("t") && localStorage.getItem("w")) {
   document.getElementById("wl").style.display = "block";
@@ -17,7 +18,8 @@ if (localStorage.getItem("t") && localStorage.getItem("w")) {
 
 document.getElementById("wpb").style.width = "15%";
 var x = new XMLHttpRequest();
-x.open("GET", "https://se.tacohitbox.com/weather/5110629");
+var wid = (localStorage.getItem("wid") || "5110629");
+x.open("GET", `https://se.tacohitbox.com/weather/${wid}`);
 x.send();
 x.onreadystatechange = function() {
   if (x.readyState == 1) {

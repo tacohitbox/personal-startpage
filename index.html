@@ -1,80 +1,109 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>> aria</title>
+    <title>> welcome</title>
     <link href="./style.css" rel="stylesheet">
   </head>
-  <body>
+  <body onhashchange="ref()">
     <div class="home">
-      <h2 id="tline">> aria</h2>
-      <p id="wel">welcomeeeeeeee</p>
-      <div id="wpb">loading weather</div>
-      <p id="wl" style="display:none;"></p>
-      <form action="https://duckduckgo.com/" method="post">
-        <input type="text" id="text-box" name="q" autofocus="" autocomplete="off" placeholder="Search.">
-      </form>
-      <div class="tc">
-        <p id="time"></p>
+      <h2 id="tline">> welcome</h2>
+      <div id="main">
+        <p id="wel">welcomeeeeeeee</p>
+        <div id="wpb">loading weather</div>
+        <p id="wl" style="display:none;"></p>
+        <form action="https://duckduckgo.com/" method="post">
+          <input type="text" id="text-box" name="q" autofocus="" autocomplete="off" placeholder="Search.">
+        </form>
+        <div class="tc">
+          <p id="time"></p>
+        </div>
+        <div class="sc">
+          <table>
+            <tr>
+              <th>socials</th>
+              <th>dev</th>
+              <th>piracy</th>
+              <th>misc</th>
+            </tr>
+            <tr>
+              <td><a href="https://twitter.com/">birdsite</a></td>
+              <td><a href="https://git.gay/">git.gay</a></td>
+              <td><a href="https://app.plex.tv">plex</a>/<a href="https://jf.tacohitbox.com/">jf</a></td>
+              <td><a href="https://da.gd">da.gd</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://tech.lgbt/">masto</a></td>
+              <td><a href="https://github.com/">github</a></td>
+              <td><a href="https://fora.snahp.eu">snahp</a></td>
+              <td><a href="https://send.vis.ee">ffsend</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://old.reddit.com/">reddit</a></td>
+              <td><a href="https://npmjs.com/">npm</a></td>
+              <td><a href="https://torrentleech.org">torleech</a></td>
+              <td><a href="https://old.reddit.com/r/freemediaheckyeah/wiki">fmhy</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.last.fm">last.fm</a></td>
+              <td><a href="https://aai.li">aai.li</a></td>
+              <td><a href="https://solidtorrents.net">solid</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><a href="https://youtube.com">youtube</a></td>
+              <td></td>
+              <td><a href="https://demonoid.is">demonoid</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><a href="https://ustvgo.tv">ustvgo</a>/<a href="https://ustv247.tv/">ustv247</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><a href="http://live94today.com/category/united-states-usa/">123tv</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div class="sc">
-        <table>
-          <tr>
-            <th>socials</th>
-            <th>dev</th>
-            <th>piracy</th>
-            <th>misc</th>
-          </tr>
-          <tr>
-            <td><a href="https://twitter.com/">birdsite</a></td>
-            <td><a href="https://git.gay/">git.gay</a></td>
-            <td><a href="https://app.plex.tv">plex</a>/<a href="https://jf.tacohitbox.com/">jf</a></td>
-            <td><a href="https://da.gd">da.gd</a></td>
-          </tr>
-          <tr>
-            <td><a href="https://tech.lgbt/">masto</a></td>
-            <td><a href="https://github.com/">github</a></td>
-            <td><a href="https://fora.snahp.eu">snahp</a></td>
-            <td><a href="https://send.vis.ee">ffsend</a></td>
-          </tr>
-          <tr>
-            <td><a href="https://old.reddit.com/">reddit</a></td>
-            <td><a href="https://npmjs.com/">npm</a></td>
-            <td><a href="https://torrentleech.org">torleech</a></td>
-            <td><a href="https://old.reddit.com/r/freemediaheckyeah/wiki">fmhy</a></td>
-          </tr>
-          <tr>
-            <td><a href="https://www.last.fm">last.fm</a></td>
-            <td><a href="https://aai.li">aai.li</a></td>
-            <td><a href="https://solidtorrents.net">solid</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><a href="https://youtube.com">youtube</a></td>
-            <td></td>
-            <td><a href="https://demonoid.is">demonoid</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td><a href="https://ustvgo.tv">ustvgo</a>/<a href="https://ustv247.tv/">ustv247</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td><a href="http://live94today.com/category/united-states-usa/">123tv</a></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
-      </div>
+      <div id="settings" style="display:none;">
+        <a href="#" class="irreg-link">< back</a>
+        <hr>
+        <h2 style="margin-bottom:7px !important;">settings</h2>
+        <p>hover over a setting for more information on them. settings are auto-saved.</p>
+        <div class="set" title="The name displayed at the top.">
+          <label for="name">Name:</label>
+          <input name="name" id="name" placeholder="> welcome" oninput="save(this.id, this.value);"> 
+          <button onclick="document.getElementById('name').value='> welcome'">default</button>
+        </div>
+        <div class="set" title="The city that weather is retrived from.">
+          <label for="wid"><a href="https://openweathermap.org/">OpenWeatherMap</a> ID:</label>
+          <input name="wid" id="wid" placeholder="5110629" oninput="save(this.id, this.value);">
+          <button onclick="document.getElementById('wid').value='5110629'">default</button>
+        </div>
+        <div class="set">
+          <label for="wm">Weather Measurement: </label>
+          <select name="wm" id="wm" oninput="save(this.id, this.value);">
+            <option value="imperial">Imperial (Fahrenheit)</option>
+            <option value="metric">Metric (Celsius)</option>
+          </select>
+          <button onclick="document.getElementById('wm').value='imperial'">default</button>
+        </div><br>
+        <button onclick="window.open(window.location.href.split('#')[0], '_self')">apply</button>
+      </div><br>
+      <p class="footer"><a href="https://github.com/tacohitbox/personal-startpage">source code</a> - <a href="#settings">settings</a></p>
     </div>
     <script src="./load.js"></script>
+    <script src="./settings.js"></script>
   </body>
 </html>
