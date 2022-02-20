@@ -133,3 +133,7 @@ th {
 .set {
   margin-top: 5px;
 }
+
+.ns {
+  display: none;
+}

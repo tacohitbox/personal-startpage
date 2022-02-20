@@ -1,5 +1,9 @@
+var scr = document.createElement("style");
+scr.innerHTML = ".ns {display:inline-block !important;}";
+document.querySelector("body").append(scr);
+
 var w = [
-  "welcome :3",
+  "i'm inside your walls",
   "what's up stinkass",
   "howdy howdy howdy",
   "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
@@ -14,6 +18,8 @@ if (localStorage.getItem("t") && localStorage.getItem("w")) {
   document.getElementById("wl").style.display = "block";
   document.getElementById("wpb").style.display = "none";
   document.getElementById("wl").innerHTML = `it's currently ${localStorage.getItem("t")} degrees with some ${localStorage.getItem("w")} outside.`;
+} else {
+  document.getElementById("wpb").style.display = "";
 }
 
 document.getElementById("wpb").style.width = "15%";

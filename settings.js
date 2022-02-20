@@ -18,7 +18,10 @@ function ref() {
 }
 
 function save(id, data) {
-  if (id == "name" && data == "> welcome" || id == "wid" && data == "5110629" || id == "wm" && data == "imperial") {localStorage.removeItem(id); return;}
+  if (id == "name" && data == "> welcome" || id == "wid" && data == "5110629" || id == "wm" && data == "imperial") {
+    if (localStorage.getItem(id)) localStorage.removeItem(id); 
+    return;
+  }
   if (data == "") return;
   localStorage.setItem(id, data);
 }
