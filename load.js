@@ -12,7 +12,10 @@ var w = [
 ]
 
 document.getElementById("wel").innerHTML = w[Math.floor(Math.random() * w.length)];
-if (localStorage.getItem("name")) document.getElementById("tline").innerHTML = localStorage.getItem("name");
+if (localStorage.getItem("name")) {
+  document.title = localStorage.getItem("name");
+  document.getElementById("tline").innerHTML = localStorage.getItem("name");
+}
 
 if (localStorage.getItem("t") && localStorage.getItem("w")) {
   document.getElementById("wl").style.display = "block";
