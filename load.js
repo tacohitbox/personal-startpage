@@ -19,6 +19,7 @@ if (localStorage.getItem("t") && localStorage.getItem("w")) {
 document.getElementById("wpb").style.width = "15%";
 var x = new XMLHttpRequest();
 var wid = (localStorage.getItem("wid") || "5110629");
+if (localStorage.getItem("wm")) wid = `${wid}?measure=${localStorage.getItem("wm")}`;
 x.open("GET", `https://se.tacohitbox.com/weather/${wid}`);
 x.send();
 x.onreadystatechange = function() {
