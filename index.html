@@ -5,6 +5,9 @@
     <link href="./style.css" rel="stylesheet">
   </head>
   <body onhashchange="ref()">
+    <div class="bg">
+      <img class="bg-img"> 
+    </div>
     <div class="home">
       <h2 id="tline">> welcome</h2>
       <div id="main">
@@ -86,18 +89,50 @@
           <input name="name" id="name" placeholder="> welcome" oninput="save(this.id, this.value);"> 
           <button onclick="document.getElementById('name').value='> welcome'">default</button>
         </div>
-        <div class="set" title="The city that weather is retrived from.">
-          <label for="wid"><a href="https://openweathermap.org/">OpenWeatherMap</a> ID:</label>
-          <input name="wid" id="wid" placeholder="5110629" oninput="save(this.id, this.value);">
-          <button onclick="document.getElementById('wid').value='5110629'">default</button>
+        <div class="set" title="Gets weather data automatically and displays it on the startpage.">
+          <label for="enwe">Enable Weather Data:</label>
+          <select name="enwe" id="enwe" oninput="save(this.id, this.value); ref();">
+            <option value="false">Disabled</option>
+            <option value="true">Enabled</option>
+          </select> 
         </div>
-        <div class="set" title="Measurements for the weather report.">
-          <label for="wm">Weather Measurement: </label>
-          <select name="wm" id="wm" oninput="save(this.id, this.value);">
-            <option value="imperial">Imperial (Fahrenheit)</option>
-            <option value="metric">Metric (Celsius)</option>
+        <div id="weather-settings-container">
+          <div class="set" title="The city that weather is retrived from.">
+            <label for="wid"><a href="https://openweathermap.org/">OpenWeatherMap</a> ID:</label>
+            <input name="wid" id="wid" placeholder="5110629" oninput="save(this.id, this.value);">
+            <button onclick="document.getElementById('wid').value='5110629'">default</button>
+          </div>
+          <div class="set" title="Measurements for the weather report.">
+            <label for="wm">Weather Measurement: </label>
+            <select name="wm" id="wm" oninput="save(this.id, this.value);">
+              <option value="imperial">Imperial (Fahrenheit)</option>
+              <option value="metric">Metric (Celsius)</option>
+            </select>
+            <button onclick="document.getElementById('wm').value='imperial'">default</button>
+          </div>
+        </div>
+        <div class="set" title="Sets the background to this page.">
+          <label for="bg">Background: </label>
+          <select name="bg" id="bg" oninput="save(this.id, this.value); ref();">
+            <option value="black">Black Background</option>
+            <option value="randomFromWH">Random from Wallhaven.cc</option>
           </select>
-          <button onclick="document.getElementById('wm').value='imperial'">default</button>
+          <button onclick="document.getElementById('bg').value='black'">default</button>
+        </div>
+        <div id="wh-container">
+          <div class="set" title="The search term on Wallhaven.cc">
+            <label for="wh">Wallhaven search term: </label>
+            <input name="wh" id="wh" placeholder="sky" oninput="save(this.id, this.value);">
+            <button onclick="document.getElementById('wh').value='sky'">default</button>
+          </div>
+          <div class="set" title="Every time the page loads, get a new wallpaper">
+            <label for="nw">Refresh wallpaper on start:</label>
+            <select name="nw" id="nw" oninput="save(this.id, this.value);">
+              <option value="true">Enabled</option>
+              <option value="false">Disabled</option>
+            </select>
+            <button onclick="document.getElementById('nw').value='true'">default</button>
+          </div>
         </div><br>
         <button onclick="window.open(window.location.href.split('#')[0], '_self')">apply</button>
       </div><br>

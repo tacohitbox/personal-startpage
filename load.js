@@ -17,43 +17,74 @@ if (localStorage.getItem("name")) {
   document.getElementById("tline").innerHTML = localStorage.getItem("name");
 }
 
-if (localStorage.getItem("t") && localStorage.getItem("w")) {
-  document.getElementById("wl").style.display = "block";
-  document.getElementById("wpb").style.display = "none";
-  document.getElementById("wl").innerHTML = `it's currently ${localStorage.getItem("t")} degrees with some ${localStorage.getItem("w")} outside.`;
-} else {
-  document.getElementById("wpb").style.display = "";
-}
-
-document.getElementById("wpb").style.width = "15%";
-var x = new XMLHttpRequest();
-var wid = (localStorage.getItem("wid") || "5110629");
-if (localStorage.getItem("wm")) wid = `${wid}?measure=${localStorage.getItem("wm")}`;
-x.open("GET", `https://se.tacohitbox.com/weather/${wid}`);
-x.send();
-x.onreadystatechange = function() {
-  if (x.readyState == 1) {
-    document.getElementById("wpb").style.width = "25%";
-  } else if (x.readyState == 2) {
-    document.getElementById("wpb").style.width = "50%";
-  } else if (x.readyState == 3) {
-    document.getElementById("wpb").style.width = "75%";
-  } else if (x.readyState == 4) {
-    document.getElementById("wpb").style.width = "100%";
-    document.getElementById("wpb").style.background = "#2cb67d";
-    document.getElementById("wpb").style.color = "black";
-  }
-};
-x.onload = function() {
-  setTimeout(function() {
+if (localStorage.getItem("enwe") == "true") {
+  if (localStorage.getItem("t") && localStorage.getItem("w")) {
     document.getElementById("wl").style.display = "block";
     document.getElementById("wpb").style.display = "none";
-    var b = JSON.parse(x.responseText);
-    document.getElementById("wl").innerHTML = `it's currently ${b.data.current.temp.toFixed(0)} degrees with some ${b.data.current.weather[0].description} outside.`;
-    localStorage.setItem("t", b.data.current.temp.toFixed(0));
-    localStorage.setItem("w", b.data.current.weather[0].description);
-  }, 500)
+    document.getElementById("wl").innerHTML = `it's currently ${localStorage.getItem("t")} degrees with some ${localStorage.getItem("w")} outside.`;
+  } else {
+    document.getElementById("wpb").style.display = "";
+  }
 }
+
+if (localStorage.getItem("bg") == "randomFromWH" && localStorage.getItem("bg-content") && localStorage.getItem("nw") == "false") {
+  document.querySelector(".bg-img").src = localStorage.getItem("bg-content");
+  document.querySelector(".bg-img").addEventListener("load", function() {
+    document.querySelector(".bg-img").style = "opacity: 1;"
+    document.querySelector(".home").classList.add("a-bit-trans");
+  });
+}
+
+if (localStorage.getItem("enwe") == "true") {
+  document.getElementById("wpb").style.width = "15%";
+  var wid = (localStorage.getItem("wid") || "5110629");
+  if (localStorage.getItem("wm")) wid = `${wid}?measure=${localStorage.getItem("wm")}`;
+  var w = new XMLHttpRequest();
+  w.open("GET", `https://se.tacohitbox.com/weather/${wid}`);
+  w.send();
+  w.onreadystatechange = function() {
+    if (w.readyState == 1) {
+      document.getElementById("wpb").style.width = "25%";
+    } else if (w.readyState == 2) {
+      document.getElementById("wpb").style.width = "50%";
+    } else if (w.readyState == 3) {
+      document.getElementById("wpb").style.width = "75%";
+    } else if (w.readyState == 4) {
+      document.getElementById("wpb").style.width = "100%";
+      document.getElementById("wpb").style.background = "#2cb67d";
+      document.getElementById("wpb").style.color = "black";
+    }
+  };
+  w.onload = function() {
+    setTimeout(function() {
+      document.getElementById("wl").style.display = "block";
+      document.getElementById("wpb").style.display = "none";
+      var b = JSON.parse(w.responseText).data;
+      document.getElementById("wl").innerHTML = `it's currently ${b.current.temp.toFixed(0)} degrees with some ${b.current.weather[0].description} outside.`;
+      localStorage.setItem("t", b.current.temp.toFixed(0));
+      localStorage.setItem("w", b.current.weather[0].description);
+    }, 500);
+  }
+} 
+
+if (localStorage.getItem("bg") == "randomFromWH" && localStorage.getItem("nw") == "true") {
+  document.querySelector(".bg-img").style = "opacity: 0;";
+  var x = new XMLHttpRequest();
+  x.open("GET", `https://se.tacohitbox.com/wall?q=${(localStorage.getItem("wh") || "sky")}`);
+  x.send();
+  x.onload = function() {
+    var b = JSON.parse(x.responseText);
+    if (b.success == true) {
+      document.querySelector(".bg-img").src = `https://se.tacohitbox.com/wp?url=${encodeURIComponent(b.data)}`;
+      localStorage.setItem("bg-content", `https://se.tacohitbox.com/wp?url=${encodeURIComponent(b.data)}`)
+      document.querySelector(".bg-img").addEventListener("load", function() {
+        document.querySelector(".bg-img").style = "opacity: 1;";
+        document.querySelector(".home").classList.add("a-bit-trans");
+      });
+    }
+  }
+}
+  
 
 // some code was stolen from https://github.com/migueravila/Bento/blob/master/assets/js/time.js
 // mainly out of laziness
