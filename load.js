@@ -67,7 +67,7 @@ if (localStorage.getItem("enwe") == "true") {
   }
 } 
 
-if (localStorage.getItem("bg") == "randomFromWH" && localStorage.getItem("nw") == "true") {
+if (localStorage.getItem("bg") == "randomFromWH" && localStorage.getItem("nw") == "true" || localStorage.getItem("nw") == null) {
   document.querySelector(".bg-img").style = "opacity: 0;";
   var x = new XMLHttpRequest();
   x.open("GET", `https://se.tacohitbox.com/wall?q=${(localStorage.getItem("wh") || "sky")}`);
